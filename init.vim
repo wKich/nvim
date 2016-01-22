@@ -86,6 +86,8 @@ nmap <Leader>gc  :Gcommit<cr>i
 nmap <Leader>gps :Gpush<cr>
 nmap <Leader>gpl :Gpull<cr>
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/\.git/*,*/node_modules/*
+
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
