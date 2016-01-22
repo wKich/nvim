@@ -49,7 +49,7 @@ Plug 'bling/vim-airline'
 Plug 'rking/ag.vim'
 Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 
