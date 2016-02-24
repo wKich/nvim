@@ -4,6 +4,7 @@ set expandtab
 
 " Show number of lines
 set number
+set relativenumber
 
 " OS clipboard integration
 set clipboard+=unnamedplus
@@ -34,41 +35,42 @@ tnoremap <Leader>e <C-\><C-n>
 au! BufRead,BufNewFile *.styl setfiletype stylus
 au! BufRead,BufNewFile *.jsx setfiletype javascript
 
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+
 " Install plugins
 call plug#begin('~/.vim/bundle')
 
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'sheerun/vim-polyglot'
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'rking/ag.vim'
 Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
 
-Plug 'wavded/vim-stylus', { 'for': 'stylus' }
+Plug 'Valloric/YouCompleteMe'
+Plug 'ternjs/tern_for_vim'
+Plug 'moll/vim-node'
 
-Plug 'mattn/emmet-vim', { 'for': 'html' }
-
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-" Plug 'kien/rainbow_parentheses.vim'
-" Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-Plug 'Valloric/YouCompleteMe', { 'for': 'javascript' }
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
-Plug 'moll/vim-node', { 'for': 'javascript' }
-" Plug 'ahayman/vim-nodejs-complete', { 'for': 'javascript' }
-
-Plug 'scrooloose/syntastic', { 'for': 'javascript' }
+Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-unimpaired'
 Plug 'ntpeters/vim-better-whitespace'
+
+" Maybe need
+"Plug 'wavded/vim-stylus', { 'for': 'stylus' }
+"Plug 'mattn/emmet-vim', { 'for': 'html' }
+"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+"Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 
 call plug#end()
 
@@ -89,9 +91,12 @@ nmap <Leader>gpl :Gpull<cr>
 nmap <Leader>p :CtrlP<cr>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/\.git/*,*/node_modules/*
 
+let g:polyglot_disabled = ['javascript', 'jsx']
+
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline_theme='powerlineish'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
