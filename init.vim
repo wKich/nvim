@@ -43,10 +43,12 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'sheerun/vim-polyglot'
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Use this commit while have bug with arrow function syntax
+Plug 'pangloss/vim-javascript', { 'for': 'javascript', 'commit': 'd8c18d9' }
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'gregsexton/gitv'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'bling/vim-airline'
