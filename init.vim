@@ -2,6 +2,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" for neovim 0.1.5
+" set termguicolors
+
 " Show number of lines
 set number
 set relativenumber
@@ -44,7 +47,8 @@ call plug#begin('~/.vim/bundle')
 Plug 'sheerun/vim-polyglot'
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 " Use this commit while have bug with arrow function syntax
-Plug 'pangloss/vim-javascript', { 'for': 'javascript', 'commit': 'd8c18d9' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+", 'commit': 'd8c18d9' }
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -116,6 +120,7 @@ let g:syntastic_warning_symbol = ""
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
+let g:syntastic_javascript_eslint_args = '--parser=babel-eslint'
 
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
